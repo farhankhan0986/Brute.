@@ -48,7 +48,7 @@ export default function Hero({ latestArticle }) {
         <span className="text-white/40 font-black uppercase tracking-[0.4em]"
               style={{ fontSize: "10px" }}>
           {/* TODO: Update with current date */}
-          June 2024
+          June 2026
         </span>
       </div>
 
