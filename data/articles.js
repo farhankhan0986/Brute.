@@ -213,6 +213,225 @@ export const articles = [
   },
 
   {
+    id: "18",
+    title: "Top 10 UI Styles Shaping Modern Web Design",
+    slug: "top-10-ui-styles-modern-web-design",
+    category: "Design Theory",
+    issue: "Issue 07",
+    issueNumber: 7,
+    readingTime: "11 min read",
+    author: "Interface Lab",
+    excerpt: "From the tactile shadows of Neumorphism to the neon grids of Neo-Brutalism, we trace the top 10 UI styles defining the modern web and how to choose the right one for your product.",
+    coverImage: "https://picsum.photos/seed/topstyles/800/600",
+    images: [
+      "https://picsum.photos/seed/topstyles1/1200/800"
+    ],
+    layoutVariant: "A",
+    tags: ["UI Styles", "Web Design", "Design Theory"],
+    featured: false,
+    pullQuote: "A style is not just a coat of paint. It is an operational philosophy.",
+    tableOfContents: [
+      "The Evolution of Styles",
+      "01. Skeuomorphism",
+      "02. Flat Design",
+      "03. Minimalism",
+      "04. Neo-Brutalism",
+      "05. Glassmorphism",
+      "06. Neumorphism",
+      "07. Claymorphism",
+      "08. Aurora UI",
+      "09. Cyberpunk Retro",
+      "10. Bento Grid Layout"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "User interface styles are more than fleeting trends. They represent the technology, performance constraints, and user mental models of their era. Over the past two decades, we have watched the web shift from hyper-realistic textures to absolute flat surfaces, and now back to expressive, highly-stylized layouts. Here is a definitive breakdown of the top 10 UI styles shaping web design today."
+      },
+      {
+        type: "h2",
+        text: "01. Skeuomorphism"
+      },
+      {
+        type: "p",
+        text: "The style that started it all. Skeuomorphism mimics real-world textures and physics—like leather stitching in calendar apps, glossy glass buttons, and paper drop shadows. By mapping interface controls to physical objects, it helped early smartphone users transition to touchscreens. Today, it is making a selective comeback in spatial interfaces (like VR/AR) where physical cues are needed to establish orientation."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Digital mimics physical to bridge user familiarity.",
+          "**Key Characteristics**: Drop shadows, gradients, bevels, photorealistic textures.",
+          "**Common Use Cases**: Spatial/AR interface design, audio dials, reading apps.",
+          "**Iconic Example**: Early Apple iOS, dashboard interfaces."
+        ]
+      },
+      {
+        type: "h2",
+        text: "02. Flat Design"
+      },
+      {
+        type: "p",
+        text: "A direct backlash to skeuomorphic clutter. Flat design strips away all gradients, shadows, and textures, focusing on solid colors, geometric vectors, and clean typography. While it optimized page load speeds and responsive scaling for mobile, its extreme reduction often led to usability issues when active buttons became indistinguishable from passive text labels."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Radical simplicity, optimizing for screen scaling and speed.",
+          "**Key Characteristics**: Flat grids, high-contrast primary colors, zero depth.",
+          "**Common Use Cases**: Modern SaaS interfaces, mobile-first utility apps.",
+          "**Iconic Example**: Microsoft Windows 8 Metro UI, Google Material Design 1.0."
+        ]
+      },
+      {
+        type: "h2",
+        text: "03. Minimalism"
+      },
+      {
+        type: "p",
+        text: "Unlike flat design, minimalism is a philosophy of reduction rather than a simple aesthetic. It uses generous white space, bold typographic hierarchies, and high contrast to bring the user's focus strictly to the content. When executed well, it feels premium and effortless; when copied blindly, it results in generic, forgettable corporate SaaS landing pages."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Subtract the non-essential to let content lead.",
+          "**Key Characteristics**: Heavy focus on typography, generous white space, restrained palette.",
+          "**Common Use Cases**: Portfolio sites, luxury fashion, high-end design agencies.",
+          "**Iconic Example**: Apple's product marketing pages, iA Writer."
+        ]
+      },
+      {
+        type: "h2",
+        text: "04. Neo-Brutalism"
+      },
+      {
+        type: "p",
+        text: "Neo-brutalism rejects the polished, corporate defaults of modern web layouts. It features solid black borders, electric accent highlights, raw layouts, and overlapping elements. It is an intentional critique of risk-averse minimalism, popular among design studios, magazines, and cultural platforms looking to establish a distinct voice."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Expose the structural layout, reject safety and polish.",
+          "**Key Characteristics**: Thick black borders, electric yellow (#f2ff00) accents, zero border-radius, asymmetric grids.",
+          "**Common Use Cases**: Editorial magazines, creative agencies, web3 projects.",
+          "**Iconic Example**: Figma's brand identity, Gumroad."
+        ]
+      },
+      {
+        type: "h2",
+        text: "05. Glassmorphism"
+      },
+      {
+        type: "p",
+        text: "Glassmorphism introduces depth and spatial structure to flat screens by overlaying translucent, blurred panels. Inspired by frosted glass, the style creates clear layering hierarchies. It relies heavily on backdrop filters, specularity outlines, and drop shadows to prevent transparency from degrading text contrast ratios."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Simulate transparent frosted glass layers to organize space.",
+          "**Key Characteristics**: Backdrop-filter blur, low-opacity white fills, drop shadows, specular border outlines.",
+          "**Common Use Cases**: OS dashboards, overlay dialogs, control panels.",
+          "**Iconic Example**: Windows 11 Acrylic material, macOS Big Sur UI."
+        ]
+      },
+      {
+        type: "h2",
+        text: "06. Neumorphism"
+      },
+      {
+        type: "p",
+        text: "Neumorphism blends flat design with soft shadows. By applying matching color fills and dual light/dark drop shadows, UI elements appear to be extruded from the background. Despite its massive aesthetic popularity on Dribbble in 2020, its lack of high-contrast borders and clear active states made it completely unusable for accessible, production-ready code."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Subtle, tactile skeuomorphism integrated into the interface surface.",
+          "**Key Characteristics**: Extruded surfaces, dual light/dark shadows, low contrast.",
+          "**Common Use Cases**: Smart home control dials, calc tools (strictly for visual projects).",
+          "**Iconic Example**: Dribbble concepts (2020), custom hardware dashboards."
+        ]
+      },
+      {
+        type: "h2",
+        text: "07. Claymorphism"
+      },
+      {
+        type: "p",
+        text: "A playful evolution of Neumorphism. Claymorphism uses soft, pastel, three-dimensional shapes with double inner shadows and external drop shadows, making buttons look like rounded clay models. Often paired with 3D illustrations, it is highly popular in landing pages for interactive tools and games."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Playful, cartoonish friendliness using 3D clay textures.",
+          "**Key Characteristics**: Rounded shapes, double inner shadows, external soft drop shadows.",
+          "**Common Use Cases**: Crypto websites, interactive educational web tools, games.",
+          "**Iconic Example**: Stripe's custom 3D illustration grids."
+        ]
+      },
+      {
+        type: "h2",
+        text: "08. Aurora UI"
+      },
+      {
+        type: "p",
+        text: "Aurora UI uses fluid, organic, blurred mesh gradients that shift behind dark panels like the northern lights. It brings color, energy, and modernity to tech landing pages. By combining high-saturation glowing blobs with dark glassmorphic containers, it creates a premium, high-tech aesthetic."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Use fluid, highly-saturated mesh gradients to create energy and atmosphere.",
+          "**Key Characteristics**: Blur effects, neon gradient backgrounds, dark panels.",
+          "**Common Use Cases**: Startup landings, AI/SaaS features, promotional pages.",
+          "**Iconic Example**: Stripe's home page gradient, Vercel promotional grids."
+        ]
+      },
+      {
+        type: "h2",
+        text: "09. Cyberpunk / Retro-Futurism"
+      },
+      {
+        type: "p",
+        text: "Inspired by vintage computers and futuristic arcade games. Cyberpunk UI uses dark terminal backgrounds, neon lines (typically pink, cyan, or lime), pixelated graphics, and monospace type. It establishes a visceral, tech-rebel identity, commonly used in developer tools, gaming platforms, and blockchain tech."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Nostalgic 80s neon-hacker terminal aesthetics.",
+          "**Key Characteristics**: Monospace typography, glowing border lines, high-saturation pinks/cyans, dark backgrounds.",
+          "**Common Use Cases**: Crypto dashboards, developer tools, gaming landing pages.",
+          "**Iconic Example**: Gitpod, Tailwind CSS's retro landing pages."
+        ]
+      },
+      {
+        type: "h2",
+        text: "10. Bento Grid Layout"
+      },
+      {
+        type: "p",
+        text: "Inspired by the compartments of a Japanese bento box. Bento layout partitions information into distinct, rounded, bordered rectangular blocks of varying sizes. Made famous by Apple product slides and Microsoft Windows tiles, it is now the standard layout style for portfolio sites, dashboards, and feature grids."
+      },
+      {
+        type: "ul",
+        title: "Key Characteristics & Examples:",
+        items: [
+          "**Core Philosophy**: Compartmentalize heterogeneous data into a unified, clean grid.",
+          "**Key Characteristics**: Card components, rounded corners, solid borders, varied cell aspect ratios.",
+          "**Common Use Cases**: Portfolio grids, product feature showcases, analytic dashboards.",
+          "**Iconic Example**: Apple product page layout, Microsoft Windows tiles."
+        ]
+      }
+    ]
+  },
+
+  {
     id: "4",
     title: "Rebuilding a B2B Brand From Scratch: A Full Breakdown",
     slug: "rebuilding-b2b-brand-breakdown",
@@ -890,6 +1109,163 @@ export const articles = [
       },
     ],
   },
+  {
+    id: "15",
+    title: "Glassmorphism: UI Trend or Lasting Interface Paradigm?",
+    slug: "glassmorphism-ui-trend-lasting-paradigm",
+    category: "Design Theory",
+    issue: "Issue 07",
+    issueNumber: 7,
+    readingTime: "8 min read",
+    author: "Aesthetics Desk",
+    excerpt: "Glassmorphism promised to introduce depth and spatial organization to flat interfaces. We break down the physics of blur, visual hierarchies, and when transparency turns into cognitive load.",
+    coverImage: "https://picsum.photos/seed/glass/800/600",
+    images: [
+      "https://picsum.photos/seed/glass1/1200/800"
+    ],
+    layoutVariant: "C",
+    tags: ["UI Styles", "Glassmorphism", "Design Theory"],
+    featured: false,
+    pullQuote: "Transparency is not depth. Without boundaries, blur is just noise.",
+    tableOfContents: [
+      "The Glass Hypothesis",
+      "The Mechanics of Glassmorphism",
+      "Cognitive Load & Contrast",
+      "Best Practices for Production"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "In the late 2010s, UI design hit a wall. Flat design had succeeded in cleaning up the skeuomorphic clutter of early smartphones, but it left behind a world of interfaces that felt flat, cold, and devoid of tactile feedback. The search for a middle ground—something that felt dimensional without resorting to bevels and leather textures—led to Glassmorphism. By mimicking frosted glass, this style attempts to create a spatial hierarchy through layering and depth."
+      },
+      {
+        type: "h2",
+        text: "The Glass Hypothesis"
+      },
+      {
+        type: "p",
+        text: "The core promise of glassmorphism is spatial organization. In a multi-layered interface, transparency and blur allow the user to maintain context of what lies beneath a panel without being distracted by it. The interface becomes a stack of physical panes, where light source, specular highlights, and drop shadows establish a clear three-dimensional structure."
+      },
+      {
+        type: "h2",
+        text: "The Mechanics of Glassmorphism"
+      },
+      {
+        type: "p",
+        text: "To achieve a convincing glass effect, four properties must interact precisely. First: transparency, using low-opacity fills (typically white or light gray between 5% and 25%). Second: backdrop-filter blur, scattering the light of background elements to prevent readability conflicts. Third: a fine, high-contrast border outline that defines the physical shape of the pane. Fourth: subtle drop shadows that elevate the container from the background."
+      },
+      {
+        type: "h2",
+        text: "Cognitive Load & Contrast"
+      },
+      {
+        type: "p",
+        text: "While glassmorphism looks stunning in mockups, it often fails WCAG accessibility compliance. Because the background is dynamic, text contrast ratios can shift unpredictably as the user scrolls. A white card over a light background will cause text to disappear entirely unless accompanied by solid borders and dark text colors. True accessibility means that the design remains functional under variable conditions."
+      }
+    ]
+  },
+  {
+    id: "16",
+    title: "Neumorphism: The Skeuomorphic Ghost in the Machine",
+    slug: "neumorphism-skeuomorphic-ghost-machine",
+    category: "Design Theory",
+    issue: "Issue 07",
+    issueNumber: 7,
+    readingTime: "9 min read",
+    author: "Interface Lab",
+    excerpt: "A retrospective on Neumorphism. It took the internet by storm in 2020 but catastrophically failed in production products. Here are the accessibility and usability limitations that killed the trend.",
+    coverImage: "https://picsum.photos/seed/neu/800/600",
+    images: [
+      "https://picsum.photos/seed/neu1/1200/800"
+    ],
+    layoutVariant: "A",
+    tags: ["UI Styles", "Neumorphism", "Accessibility"],
+    featured: false,
+    pullQuote: "Neumorphic interfaces succeeded as Dribbble shot bait and failed as shipping code.",
+    tableOfContents: [
+      "The Soft Shadow Hype",
+      "Why it Failed in Production",
+      "Accessibility as an Afterthought",
+      "The Lessons of Soft Skeuomorphism"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "In early 2020, neumorphism emerged as the dominant UI concept across digital design platforms. By blending skeuomorphism and flat minimalism, it created soft, extruded plastic interfaces where elements appeared to grow out of the background. It looked futuristic, tactile, and incredibly smooth. Yet, within months, the style was abandoned, never making it into major production applications."
+      },
+      {
+        type: "h2",
+        text: "The Soft Shadow Hype"
+      },
+      {
+        type: "p",
+        text: "Neumorphic design relies on dual drop shadows: a light shadow on the top-left (mimicking a highlight) and a dark shadow on the bottom-right. The container shares the exact same background color as the parent element. This creates a tactile, organic bevel that makes buttons feel like physical, rubberized membrane switches."
+      },
+      {
+        type: "h2",
+        text: "Why it Failed in Production"
+      },
+      {
+        type: "p",
+        text: "Neumorphism is structurally unable to communicate states clearly. Because the highlight and shadow represent the shape of the button, indicating a pressed state requires inverting the shadows. This subtle difference is invisible to users with visual impairments, or under direct sunlight, or on low-contrast screens. The lack of distinct borders turns normal interface navigation into guesswork."
+      },
+      {
+        type: "h2",
+        text: "Accessibility as an Afterthought"
+      },
+      {
+        type: "p",
+        text: "Visual accessibility is not a feature you add to a completed design—it is the foundation of design itself. Neumorphic buttons fail the basic 3:1 contrast requirement for user interface controls. Without a clear border, color fill, or strong contrast ratio, the elements blend together into a grey soup. It stands as a cautionary tale of prioritizing visual aesthetics over usability."
+      }
+    ]
+  },
+  {
+    id: "17",
+    title: "Flat Design and the Great Homogenization of the Web",
+    slug: "flat-design-great-homogenization-web",
+    category: "Opinion",
+    issue: "Issue 07",
+    issueNumber: 7,
+    readingTime: "7 min read",
+    author: "Editorial Team",
+    excerpt: "Flat design started as a functional response to skeuomorphic clutter. Today, it has flattened the soul of brand identity. A critique of the risk-averse minimalism dominating modern SaaS.",
+    coverImage: "https://picsum.photos/seed/flat/800/600",
+    images: [
+      "https://picsum.photos/seed/flat1/1200/800"
+    ],
+    layoutVariant: "B",
+    tags: ["Minimalism", "Flat Design", "Opinion"],
+    featured: false,
+    pullQuote: "When you remove everything distinctive, you produce design that nobody hates — and nobody remembers.",
+    tableOfContents: [
+      "The Skeuomorphic Backlash",
+      "The Rise of Blandness",
+      "Corporate Memphis and Vectors",
+      "Reclaiming Visual Character"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Flat design was born out of a genuine need. In the early days of touchscreens, skeuomorphic textures (like artificial leather, glass buttons, and paper pages) helped users understand how to interact with pixels. But once digital metaphors were established, those heavy textures became visual baggage. Flat design cleaned up our screens, simplified responsive scaling, and sped up page loads."
+      },
+      {
+        type: "h2",
+        text: "The Rise of Blandness"
+      },
+      {
+        type: "p",
+        text: "However, like all design reactions, flat design went too far. By stripping away textures, gradients, and shadows, brands lost their visual indicators of character. Logos were flattened into generic geometric shapes, and custom illustrations were replaced with simple vector clip-art. The internet became a uniform grid of rounded blocks and neutral sans-serif fonts."
+      },
+      {
+        type: "h2",
+        text: "Corporate Memphis and Vectors"
+      },
+      {
+        type: "p",
+        text: "This visual homogenization culminated in the style known as Corporate Memphis—characterized by flat vector figures with skewed proportions and pastel color palettes. It became the default visual language for SaaS, tech startups, and banks. It was safe, cheap to produce, and impossible to mistake for anything other than a polite corporate communication. In other words, it was utterly devoid of voice."
+      }
+    ]
+  }
 ];
 
 export function getArticleBySlug(slug) {

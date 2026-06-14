@@ -34,7 +34,7 @@ export default function Footer() {
 
         {/* Email — oversized */}
         <a
-          href="mailto:editors@brutemagazine.com" /* TODO: Replace with real email */
+          href="mailto:farhankhan080304@gmail.com" /* TODO: Replace with real email */
           id="footer-email"
           aria-label="Email the editors"
           className="block font-black text-white leading-none tracking-tighter uppercase 
@@ -68,7 +68,7 @@ export default function Footer() {
               {/* TODO: Replace with real publication details */}
               BRUTE. Magazine<br />
               Vol. 3, Issue 07<br />
-              June 2024
+              June 2026
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export default function Footer() {
         <span className="text-white/15 font-black uppercase tracking-widest"
               style={{ fontSize: "10px" }}>
           {/* TODO: Replace with real copyright */}
-          © 2024 BRUTE. Magazine. All rights reserved.
+          © 2026 BRUTE. Magazine. All rights reserved.
         </span>
         <span
           className="text-white/10 font-black tracking-widest"

@@ -1,22 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 
+function renderListText(text) {
+  if (typeof text !== "string") return text;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-black text-black uppercase tracking-wider text-xs bg-[#f2ff00] px-1 border-2 border-black mr-1 shadow-[2px_2px_0_#000000]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 /**
- * Renders a structured body array: [{type:"p"|"h2"|"blockquote", text:"..."}]
+ * Renders a structured body array: [{type:"p"|"h2"|"blockquote"|"ul"|"ol", text:"...", items:[]}]
  * Used by all three variants.
  */
 function ArticleBody({ body, isLead = false }) {
   if (!body || body.length === 0) return null;
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {body.map((block, i) => {
         if (block.type === "h2") {
           return (
             <h2
               key={i}
-              className="font-black text-black uppercase tracking-widest pt-4"
-              style={{ fontSize: "clamp(0.75rem, 1.2vw, 0.95rem)", letterSpacing: "0.25em" }}
+              className="font-black text-black uppercase tracking-wider pt-6 pb-2 border-b-[3px] border-black/10 flex items-center gap-2"
+              style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)" }}
             >
+              <span className="inline-block w-3 h-3 bg-[#f2ff00] border-2 border-black shrink-0" />
               {block.text}
             </h2>
           );
@@ -25,17 +41,83 @@ function ArticleBody({ body, isLead = false }) {
           return (
             <blockquote
               key={i}
-              className="border-l-[6px] border-[#f2ff00] pl-5 font-black text-black italic leading-tight"
-              style={{ fontSize: "clamp(1rem, 1.8vw, 1.3rem)" }}
+              className="border-l-[6px] border-[#f2ff00] pl-5 my-6 font-black text-black italic leading-tight"
+              style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
             >
               {block.text}
             </blockquote>
           );
         }
+        if (block.type === "ul") {
+          return (
+            <div key={i} className="my-6 pl-1">
+              {block.title && (
+                <h4 className="font-black text-black uppercase tracking-wider mb-4 text-xs flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-[#f2ff00] border-2 border-black" />
+                  {block.title}
+                </h4>
+              )}
+              <ul className="space-y-4">
+                {block.items.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="mt-1 w-3 h-3 bg-[#f2ff00] border-[3px] border-black shrink-0 shadow-[1px_1px_0_#000000]" aria-hidden="true" />
+                    <span className="font-semibold text-black/80 text-[15px] leading-snug">
+                      {renderListText(item)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+        if (block.type === "ol") {
+          return (
+            <div key={i} className="my-6 pl-1">
+              {block.title && (
+                <h4 className="font-black text-black uppercase tracking-wider mb-4 text-xs flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-black" />
+                  {block.title}
+                </h4>
+              )}
+              <ol className="space-y-4">
+                {block.items.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="font-black text-[10px] text-black bg-[#f2ff00] border-[2.5px] border-black px-1.5 py-0.5 shrink-0 shadow-[2px_2px_0_#000000] leading-none" aria-hidden="true">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-semibold text-black/80 text-[15px] leading-snug pt-0.5">
+                      {renderListText(item)}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          );
+        }
+        
+        // Render first paragraph with a drop cap
+        if (i === 0 && isLead) {
+          const text = block.text;
+          const firstChar = text.charAt(0);
+          const restText = text.slice(1);
+          return (
+            <p
+              key={i}
+              className="leading-relaxed font-semibold text-black mb-5"
+              style={{ fontSize: "clamp(1.05rem, 1.4vw, 1.15rem)" }}
+            >
+              <span className="float-left text-5xl md:text-6xl font-black bg-[#f2ff00] text-black border-4 border-black px-3 py-1 mr-3 mt-1 leading-none shadow-[4px_4px_0_#000000]">
+                {firstChar}
+              </span>
+              {restText}
+            </p>
+          );
+        }
+
         return (
           <p
             key={i}
-            className={`leading-relaxed ${i === 0 && isLead ? "font-semibold text-black" : "font-medium text-black/70"}`}
+            className="leading-relaxed font-medium text-black/75 mb-4"
             style={{ fontSize: "clamp(0.95rem, 1.3vw, 1.05rem)" }}
           >
             {block.text}
@@ -187,43 +269,50 @@ function VariantA({ article }) {
           </div>
 
           {/* Sidebar: table of contents + details */}
-          <div className="md:col-span-5 md:pl-8 md:border-l-[4px] md:border-black">
+          <div className="md:col-span-5 md:pl-8 md:border-l-[4px] md:border-black sticky top-24 self-start">
             <p className="font-black text-black/20 uppercase tracking-[0.5em] mb-5"
                style={{ fontSize: "10px" }}>
               Contents
             </p>
             {article.tableOfContents && (
-              <ol className="space-y-3 mb-8">
-                {article.tableOfContents.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className="font-black shrink-0 leading-none mt-[2px]"
-                      style={{ fontSize: "11px", color: "#f2ff00", WebkitTextStroke: "1px black" }}
-                      aria-hidden="true"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-black text-black uppercase tracking-widest leading-tight"
-                          style={{ fontSize: "11px" }}>
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ol>
+              <div className="border-[4px] border-black shadow-[6px_6px_0_#000000] mb-8 bg-white">
+                <div className="bg-[#f2ff00] border-b-[4px] border-black px-4 py-3">
+                  <h3 className="font-black text-black text-xs uppercase tracking-[0.3em]">
+                    Table of Contents
+                  </h3>
+                </div>
+                <ol className="divide-y-[3px] divide-black">
+                  {article.tableOfContents.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 p-4 hover:bg-black hover:text-white transition-colors duration-100 group">
+                      <span
+                        className="font-black shrink-0 leading-none"
+                        style={{ fontSize: "11px", color: "#f2ff00", WebkitTextStroke: "1px black" }}
+                        aria-hidden="true"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-black uppercase tracking-widest leading-tight group-hover:translate-x-1 transition-transform duration-100"
+                            style={{ fontSize: "11px" }}>
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             )}
-            <div className="border-t-[4px] border-black pt-6 space-y-4">
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { label: "Author", value: article.author },
                 { label: "Issue", value: article.issue },
                 { label: "Category", value: article.category },
                 { label: "Read Time", value: article.readingTime },
               ].map(({ label, value }) => (
-                <div key={label}>
+                <div key={label} className="border-[4px] border-black p-4 bg-white shadow-[4px_4px_0_#000000]">
                   <dt className="font-black text-black/25 uppercase tracking-widest"
                       style={{ fontSize: "9px" }}>
                     {label}
                   </dt>
-                  <dd className="font-black text-black uppercase mt-0.5"
+                  <dd className="font-black text-black uppercase mt-1"
                       style={{ fontSize: "12px" }}>
                     {value}
                   </dd>
@@ -352,15 +441,16 @@ function VariantB({ article }) {
 
       {/* Pull quote on yellow */}
       <div
-        className="border-b-[8px] border-black px-6 md:px-14 py-14 md:py-20"
-        style={{ background: "#f2ff00" }}
+        className="border-b-[8px] border-black px-6 md:px-14 py-14 md:py-20 flex justify-center bg-white"
       >
-        <blockquote
-          className="font-black text-black leading-none tracking-tighter uppercase"
-          style={{ fontSize: "clamp(2rem, 5vw, 7rem)" }}
-        >
-          {article.pullQuote}
-        </blockquote>
+        <div className="bg-[#f2ff00] border-[6px] border-black p-8 md:p-12 shadow-[12px_12px_0_#000000] rotate-[-1deg] hover:rotate-0 transition-transform duration-100 max-w-5xl w-full">
+          <blockquote
+            className="font-black text-black leading-none tracking-tighter uppercase"
+            style={{ fontSize: "clamp(1.8rem, 4.5vw, 6rem)" }}
+          >
+            &ldquo;{article.pullQuote}&rdquo;
+          </blockquote>
+        </div>
       </div>
 
       {/* Images */}
@@ -421,13 +511,18 @@ function VariantC({ article }) {
       </div>
 
       {/* Rotated pull quote */}
-      <div className="bg-black py-14 md:py-20 px-6 md:px-14 border-b-[8px] border-black overflow-hidden">
-        <blockquote
-          className="font-black text-white leading-none tracking-tighter uppercase relative z-10"
-          style={{ fontSize: "clamp(1.8rem, 4.5vw, 6.5rem)", transform: "rotate(-1.5deg)" }}
-        >
-          {article.pullQuote}
-        </blockquote>
+      <div className="bg-black py-16 md:py-24 px-6 md:px-14 border-b-[8px] border-black overflow-hidden flex justify-center">
+        <div className="bg-white text-black border-[6px] border-black p-8 md:p-12 rotate-[1.5deg] shadow-[10px_10px_0_#f2ff00] hover:rotate-0 transition-transform duration-100 max-w-4xl w-full relative">
+          <span className="absolute -top-5 -left-5 bg-[#f2ff00] text-black font-black uppercase text-xs px-3 py-1 border-[4px] border-black tracking-widest">
+            Quote of the Issue
+          </span>
+          <blockquote
+            className="font-black leading-none tracking-tighter uppercase"
+            style={{ fontSize: "clamp(1.5rem, 4vw, 5rem)" }}
+          >
+            &ldquo;{article.pullQuote}&rdquo;
+          </blockquote>
+        </div>
       </div>
 
       {/* Yellow metadata block */}
@@ -469,12 +564,12 @@ function VariantC({ article }) {
 
       {/* Staggered images */}
       {article.images.length > 0 && (
-        <div className="bg-white px-4 md:px-10 pb-9 border-b-[8px] border-black">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+        <div className="bg-white px-4 md:px-10 pb-12 border-b-[8px] border-black">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             {article.images.map((img, i) => (
               <div
                 key={i}
-                className="relative border-[6px] border-black overflow-hidden"
+                className="relative border-[6px] border-black overflow-hidden shadow-[8px_8px_0_#000000] hover:shadow-[12px_12px_0_#000000] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-150"
                 style={{
                   gridColumn: i === 0 ? "span 7" : "span 5",
                   marginTop: i % 2 === 1 ? "clamp(0px, 3vw, 40px)" : "0",

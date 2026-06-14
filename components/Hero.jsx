@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { articles } from "@/data/articles";
 
 // Ticker — magazine-themed
 const TICKER_ITEMS = [
@@ -23,6 +24,13 @@ const TICKER_ITEMS = [
 ];
 
 export default function Hero({ latestArticle }) {
+  const articlesCount = articles.length;
+  const categoriesCount = 6; // Primary filter categories
+  const totalMinutes = articles.reduce((sum, a) => {
+    const mins = parseInt(a.readingTime) || 0;
+    return sum + mins;
+  }, 0);
+
   return (
     <section
       id="hero"
@@ -148,9 +156,9 @@ export default function Hero({ latestArticle }) {
         aria-label="Issue stats"
       >
         {[
-          { number: "8", label: "Articles" },
-          { number: "5", label: "Categories" },
-          { number: "47min", label: "Total Read" },
+          { number: String(articlesCount), label: "Articles" },
+          { number: String(categoriesCount), label: "Categories" },
+          { number: `${totalMinutes}min`, label: "Total Read" },
         ].map((stat, i) => (
           <div
             key={stat.label}
