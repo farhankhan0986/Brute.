@@ -1,26 +1,257 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   BRUTE STUDIO — Neo-Brutalist Design System
+   Tailwind v4 theme configuration
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Color palette — strictly black, white, accent */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-accent: #f2ff00;
+  --color-accent-dark: #d4e000;
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Border widths */
+  --border-width-thick: 4px;
+  --border-width-thicker: 6px;
+  --border-width-heaviest: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* Remove border-radius globally for neo-brutalist aesthetic */
+button,
+input,
+textarea,
+select {
+  border-radius: 0 !important;
+}
+
+/* Selection */
+::selection {
+  background-color: #f2ff00;
+  color: #000000;
+}
+
+/* ============================================
+   GLITCH KEYFRAMES — Chromatic Aberration
+   ============================================ */
+
+@keyframes glitch-clip-1 {
+  0%   { clip-path: inset(40% 0 61% 0); transform: translate(-4px, 0); }
+  10%  { clip-path: inset(92% 0 1% 0);  transform: translate(3px, 0); }
+  20%  { clip-path: inset(43% 0 1% 0);  transform: translate(-3px, 0); }
+  30%  { clip-path: inset(25% 0 58% 0); transform: translate(5px, 0); }
+  40%  { clip-path: inset(54% 0 7% 0);  transform: translate(-4px, 0); }
+  50%  { clip-path: inset(80% 0 2% 0);  transform: translate(4px, 0); }
+  60%  { clip-path: inset(10% 0 85% 0); transform: translate(-5px, 0); }
+  70%  { clip-path: inset(75% 0 5% 0);  transform: translate(3px, 0); }
+  80%  { clip-path: inset(20% 0 70% 0); transform: translate(-4px, 0); }
+  90%  { clip-path: inset(60% 0 15% 0); transform: translate(5px, 0); }
+  100% { clip-path: inset(40% 0 61% 0); transform: translate(-4px, 0); }
+}
+
+@keyframes glitch-clip-2 {
+  0%   { clip-path: inset(65% 0 10% 0); transform: translate(4px, 0); }
+  10%  { clip-path: inset(10% 0 80% 0); transform: translate(-3px, 0); }
+  20%  { clip-path: inset(78% 0 5% 0);  transform: translate(4px, 0); }
+  30%  { clip-path: inset(5% 0 90% 0);  transform: translate(-5px, 0); }
+  40%  { clip-path: inset(45% 0 40% 0); transform: translate(3px, 0); }
+  50%  { clip-path: inset(15% 0 72% 0); transform: translate(-4px, 0); }
+  60%  { clip-path: inset(55% 0 30% 0); transform: translate(5px, 0); }
+  70%  { clip-path: inset(25% 0 60% 0); transform: translate(-3px, 0); }
+  80%  { clip-path: inset(70% 0 20% 0); transform: translate(4px, 0); }
+  90%  { clip-path: inset(35% 0 50% 0); transform: translate(-5px, 0); }
+  100% { clip-path: inset(65% 0 10% 0); transform: translate(4px, 0); }
+}
+
+@keyframes glitch-shake {
+  0%, 100% { transform: translate(0, 0); }
+  10%       { transform: translate(-2px, 1px); }
+  20%       { transform: translate(2px, -1px); }
+  30%       { transform: translate(-1px, 2px); }
+  40%       { transform: translate(1px, -2px); }
+  50%       { transform: translate(-2px, 2px); }
+  60%       { transform: translate(2px, 1px); }
+  70%       { transform: translate(-1px, -1px); }
+  80%       { transform: translate(1px, 1px); }
+  90%       { transform: translate(-2px, -1px); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: 0.8; }
+  97%            { opacity: 1; }
+  98%            { opacity: 0.6; }
+  99%            { opacity: 1; }
+}
+
+/* ============================================
+   GLITCH CARD UTILITY
+   ============================================ */
+
+.glitch-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-card::before,
+.glitch-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.glitch-card:hover {
+  animation: glitch-shake 0.3s step-start infinite;
+}
+
+.glitch-card:hover::before {
+  opacity: 0.6;
+  background: rgba(255, 0, 0, 0.15);
+  animation: glitch-clip-1 0.3s step-start infinite;
+  mix-blend-mode: screen;
+}
+
+.glitch-card:hover::after {
+  opacity: 0.6;
+  background: rgba(0, 200, 255, 0.15);
+  animation: glitch-clip-2 0.3s step-start infinite;
+  mix-blend-mode: screen;
+}
+
+/* ============================================
+   MARQUEE UTILITY
+   ============================================ */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   SIDEBAR NAV LINKS
+   ============================================ */
+
+.nav-link {
+  display: block;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  transition: color 0.1s, background-color 0.1s;
+  border-bottom: 4px solid #000;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #f2ff00;
+  color: #000;
+}
+
+/* ============================================
+   SIDEBAR LAYOUT OFFSET
+   Sidebar is hidden on mobile (w-20 = 80px at md+).
+   Use raw CSS to guarantee the offset — avoids Tailwind
+   class-scanning / specificity issues.
+   ============================================ */
+
+.main-offset {
+  margin-left: 0;
+  padding-bottom: 56px; /* clear mobile bottom nav (h-14) */
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .main-offset {
+    margin-left: 80px; /* exact match: sidebar w-20 = 5rem = 80px */
+    padding-bottom: 0;
+  }
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f2ff00;
 }
