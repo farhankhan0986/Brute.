@@ -1265,6 +1265,148 @@ export const articles = [
         text: "This visual homogenization culminated in the style known as Corporate Memphis—characterized by flat vector figures with skewed proportions and pastel color palettes. It became the default visual language for SaaS, tech startups, and banks. It was safe, cheap to produce, and impossible to mistake for anything other than a polite corporate communication. In other words, it was utterly devoid of voice."
       }
     ]
+  },
+  {
+    id: "19",
+    title: "Systems Thinking: UI Grids & Modular Architecture",
+    slug: "systems-thinking-modular-grids",
+    category: "Design Theory",
+    issue: "Issue 04",
+    issueNumber: 4,
+    readingTime: "9 min read",
+    author: "Interface Lab",
+    excerpt: "Grids are not visual layout frames. They are operational architectures. A guide to modular systems design for scalable interface engineering.",
+    coverImage: "https://picsum.photos/seed/sys1/800/600",
+    images: [
+      "https://picsum.photos/seed/sys1a/1200/800"
+    ],
+    layoutVariant: "B",
+    tags: ["Systems Design", "Grids", "UI Architecture"],
+    featured: false,
+    pullQuote: "A modular grid coordinates code, design systems, and user intent under one logic.",
+    tableOfContents: [
+      "Modular Architecture",
+      "The Column Logic",
+      "Vertical Baseline Rhythm",
+      "Friction in Production"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "When we treat grids as design-only templates, we introduce friction at the transition boundary to front-end development. A developer doesn't see lines; they see components, flexbox flex-grow factors, CSS Grid fraction units, and token spaces. Systems thinking means designing grids as structural APIs that reconcile designers' aesthetic alignment goals with developers' performance constraints."
+      },
+      {
+        type: "h2",
+        text: "Modular Architecture"
+      },
+      {
+        type: "p",
+        text: "A modular interface grid breaks down layout surfaces into cells that hold components. Each cell has an aspect ratio and a placement coordinate. The goal is to build layouts where components automatically adapt as they move across grid rows or columns without breaking their underlying spacing ratios."
+      },
+      {
+        type: "ul",
+        title: "Key Grid Rules:",
+        items: [
+          "**Standardize Gutters**: Use consistent spacing tokens (e.g. 16px, 24px) that scale relative to screen density.",
+          "**Responsive Reflow**: Grid structures should reflow from 12-column desktop grids to single-column phone screens smoothly.",
+          "**Token Spacing Alignment**: Match font margins and card padding to the grid's underlying vertical increments."
+        ]
+      }
+    ]
+  },
+  {
+    id: "20",
+    title: "Type & Identity: The Politics of Grotesk Fonts",
+    slug: "type-identity-politics-grotesk",
+    category: "Typography",
+    issue: "Issue 03",
+    issueNumber: 3,
+    readingTime: "8 min read",
+    author: "Type Desk",
+    excerpt: "Typography is branding's silent voice. We dissect the rise of geometric grotesques and their ideological role in digital branding.",
+    coverImage: "https://picsum.photos/seed/typo3/800/600",
+    images: [
+      "https://picsum.photos/seed/typo3a/1200/800"
+    ],
+    layoutVariant: "C",
+    tags: ["Typography", "Fonts", "Branding"],
+    featured: false,
+    pullQuote: "A typeface tells a brand story before a single sentence is read.",
+    tableOfContents: [
+      "The Rise of Grotesques",
+      "Neutrality as Ideology",
+      "Reclaiming Typographic Soul"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Typography in digital media is often treated purely as a readability constraint. Is it legible? Does it render cleanly on low-DPI displays? But behind the math of kerning and x-height lies a political dimension: font systems signal corporate intentions, authority, stability, or visual rebellion."
+      },
+      {
+        type: "h2",
+        text: "The Rise of Grotesques"
+      },
+      {
+        type: "p",
+        text: "For the last decade, sans-serif grotesques have dominated software products. From Helvetica derivatives to Circular and Inter, tech companies have built interfaces on typography that claims to be neutral. This neutrality is itself a statement, signaling engineering efficiency, safety, and frictionless service."
+      },
+      {
+        type: "ul",
+        title: "Typographic Rules of Identity:",
+        items: [
+          "**Structural Honesty**: Fonts like Space Grotesk reveal their geometric terminals instead of smoothing them.",
+          "**Visual Differentiation**: Reject defaults to stand out in a landscape of safe, identical interfaces.",
+          "**Readability Ratios**: Ensure bold sizes maintain visual balance when paired with standard body text."
+        ]
+      }
+    ]
+  },
+  {
+    id: "21",
+    title: "Strategic Positioning: Brand Equity vs Conversion Hacks",
+    slug: "brand-equity-vs-conversion-hacks",
+    category: "Case Study",
+    issue: "Issue 02",
+    issueNumber: 2,
+    readingTime: "10 min read",
+    author: "Strategy Desk",
+    excerpt: "Growth hacks produce metric bumps; design integrity builds brand equity. Why conversion optimization without visual voice is a race to the bottom.",
+    coverImage: "https://picsum.photos/seed/brand3/800/600",
+    images: [
+      "https://picsum.photos/seed/brand3a/1200/800"
+    ],
+    layoutVariant: "A",
+    tags: ["Branding", "Strategy", "Conversion Optimization"],
+    featured: false,
+    pullQuote: "Optimizing conversion ratios without brand identity is a systematic dilution of value.",
+    tableOfContents: [
+      "The Hacking Trap",
+      "Equity Over Optimizations",
+      "Balancing Conversion & Identity"
+    ],
+    body: [
+      {
+        type: "p",
+        text: "If you optimize layout elements solely based on A/B test conversion outputs, your interface will slowly converge to a generic baseline. That is because A/B tests isolate short-term click variables and fail to capture long-term brand equity, user affinity, or memory recall value."
+      },
+      {
+        type: "h2",
+        text: "The Hacking Trap"
+      },
+      {
+        type: "p",
+        text: "We see companies deploy neon banners, blinking countdowns, and dark pattern prompts to lift conversion numbers. While these hacks produce immediate bumps in metric charts, they simultaneously degrade brand positioning, alienate premium cohorts, and increase long-term user churn rates."
+      },
+      {
+        type: "ul",
+        title: "Strategic Pillars:",
+        items: [
+          "**Value Retention**: Prioritize layout clarity and structural integrity over intrusive action calls.",
+          "**Identity Alignment**: Design CTAs that reflect the brand's voice rather than generic high-contrast arrows.",
+          "**Long-Term Affinity**: Align interface graphics to match user aesthetics and build memory recall."
+        ]
+      }
+    ]
   }
 ];
 
